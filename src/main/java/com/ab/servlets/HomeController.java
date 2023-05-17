@@ -1,4 +1,5 @@
 package com.ab.servlets;
+import com.ab.models.User;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,10 +17,13 @@ import javax.servlet.http.HttpServletResponse;
 public class HomeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
+	User user1 = new User(12, "Jaiden", "jaidenmccarney@gmail.com");
+	
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html"); //setting the type of the content that is going to be displayed
+		/*response.setContentType("text/html"); //setting the type of the content that is going to be displayed
 		PrintWriter pw = response.getWriter();
-		pw.println("Hello world"); //writing out hello world
+		pw.println("Hello world"); //writing out hello world*/
+		request.getRequestDispatcher("home.jsp").forward(request, response);
 	}
     /**
      * @see HttpServlet#HttpServlet()
